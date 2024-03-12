@@ -12,7 +12,8 @@ import { Pressable } from "react-native";
 const SignUpScreen = () => {
   const navigation = useNavigation<AuthScreenNavigationType<"SignUp">>();
   const navigateToSignInScreen = () => {
-    navigation.navigate("SignIn")
+    navigation.navigate("SignIn");
+  };
 
   const {
     control,
@@ -44,10 +45,10 @@ const SignUpScreen = () => {
     <SafeAreaWrapper>
       <Box flex={1} px="5.5" mt={"13"}>
         <Text variant="textXl" fontWeight="700">
-          Welcome to Blossom!
+          Welcome to TaskMate!
         </Text>
-        <Text variant="textXl" fontWeight="700" mb="6">
-          Your journey starts here
+        <Text variant="textLg" fontWeight="700" mb="6">
+          Get yourself organised here! 
         </Text>
 
         <Controller
@@ -67,7 +68,7 @@ const SignUpScreen = () => {
           )}
           name="name"
         />
-        <Box mb="6" />
+        <Box mb="3" />
         <Controller
           control={control}
           rules={{
@@ -116,6 +117,5 @@ const SignUpScreen = () => {
       </Box>
     </SafeAreaWrapper>
   )
-}
-}
+};
 export default SignUpScreen;

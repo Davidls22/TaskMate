@@ -9,11 +9,13 @@ export const registerUser = async ({
   password,
 }: RegisterUserTypes) => {
   try {
-    const response = await axiosInstance.post("/users/create", {
+    console.log("Sending request to create user:", { email, name, password });
+    const response = await axiosInstance.post("/user/create", {
       email,
       password,
       name,
     })
+    
     return response.data.user
   } catch (error) {
     console.log("error in registerUser", error)
@@ -25,7 +27,8 @@ type LoginUserTypes = Omit<IUser, "name">
 
 export const loginUser = async ({ email, password }: LoginUserTypes) => {
   try {
-    const response = await axiosInstance.post("/users/login", {
+    console.log("Sending login request for email:", email);
+    const response = await axiosInstance.post("/user/login", {
       email,
       password,
     })

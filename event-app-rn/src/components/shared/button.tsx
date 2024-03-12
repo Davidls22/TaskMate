@@ -1,11 +1,11 @@
 import { Box, Text } from "../../utils/theme";
 import React from "react";
-import { Pressable } from "react-native"
+import { Pressable } from 'react-native';
 
 type ButtonProps = {
   label: string;
   onPress: () => void;
-  onLongPress: () => void;
+  onLongPress?: () => void;
   disabled?: boolean;
   uppercase?: boolean;
 };

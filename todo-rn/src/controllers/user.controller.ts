@@ -34,6 +34,7 @@ export const createUser = async (request: Request, response: Response) => {
       email,
       password: hashedPassword, // Use 'password' instead of 'hashedPassword'
     });
+    
 
     // Return success message
     return response.status(201).send({ message: "User created successfully" });
