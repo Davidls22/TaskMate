@@ -17,9 +17,9 @@ application.get("/greeting", (request: Request, response: Response) => {
 });
 
 application.use("/user", userRoutes);
-application.use("/category", categoryRoutes);
+application.use("/categories", categoryRoutes);
 application.use("/tasks", taskRoutes);
 
 application.listen(PORT, () => {
-  console.log("Server running");
+  console.log("Server running on port", PORT);
 });
