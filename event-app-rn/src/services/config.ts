@@ -14,20 +14,32 @@ export const saveToken = async (key: string, value: string) => {
     try {
         await SecureStore.setItemAsync(key,value)
     } catch (error) {
-        console.log("error in saveToken",error)
+        console.error("Error in saveToken:", error)
         throw error
     }
 }
+
 axiosInstance.interceptors.request.use(async (req) =>{
     try {
         const access_token = await SecureStore.getItemAsync(TASKMATE_TOKEN_NAME)
-        req.headers.Authorization = access_token
+        if (access_token) {
+            req.headers.Authorization = access_token
+        }
         return req
     } catch (error){
+        console.error("Error in request interceptor:", error)
         return req
     }
 })
 
-export const fetcher = (url:string) => axiosInstance.get(url).then((res)=> res.data)
+export const fetcher = async (url:string) => {
+    try {
+        const response = await axiosInstance.get(url)
+        return response.data
+    } catch (error) {
+        console.error("Error in fetcher:", error)
+        throw error
+    }
+}
 
 export default axiosInstance

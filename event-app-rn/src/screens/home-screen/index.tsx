@@ -5,7 +5,6 @@ import { Box, Text } from "../../utils/theme";
 import useSWR from "swr";
 
 const HomeScreen = () => {
-    const { data, isLoading } = useSWR("categories", fetcher)
     return(
     <SafeAreaWrapper>
         <Box>
