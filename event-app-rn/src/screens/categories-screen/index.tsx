@@ -10,7 +10,9 @@ import Category from "../../components/categories/category";
 import CreateNewList from "../../components/categories/create-new-list";
 
 const CategoriesScreen = () => {
-  const { data, isLoading, error } = useSWR<ICategory[]>("categories", fetcher);
+  const { data, isLoading, error } = useSWR<ICategory[]>("categories/", fetcher,{
+    refreshInterval: 2000,
+  });
 
   if (isLoading) {
     return <Loader />;
@@ -23,7 +25,7 @@ const CategoriesScreen = () => {
   return (
     <SafeAreaWrapper>
       <Box flex={1} px="4">
-        <Text variant="textXl" fontWeight="700">
+        <Text variant="textXl" fontWeight="700" mb="10">
           Categories
         </Text>
         <FlatList

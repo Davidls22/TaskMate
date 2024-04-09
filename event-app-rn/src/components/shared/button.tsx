@@ -20,13 +20,13 @@ const Button = ({
   return (
     <Pressable onPress={onPress} onLongPress={onLongPress} disabled={disabled}>
       <Box
-        bg={disabled ? "gray400" : "blu300"}
+        bg={disabled ? "gray400" : "violet100"}
         py="3.5"
         borderRadius="rounded-3xl"
         margin="12"
       >
         <Text
-          color="fuchsia800"
+          color="purple600"
           variant="textSm"
           fontWeight="800"
           textAlign="center"
