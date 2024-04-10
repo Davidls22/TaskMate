@@ -23,7 +23,7 @@ taskRoutes.route("/today").get(getAllTasksForToday);
 taskRoutes.route("/create").post(createTask);
 
 // Route to toggle the status of a task
-taskRoutes.route("/:id").post(toggleTaskStatus);
+taskRoutes.route("/update/:id").put(toggleTaskStatus);
 
 // Route to toggle the status of a task
 taskRoutes.route("/:id").delete(deleteTask);

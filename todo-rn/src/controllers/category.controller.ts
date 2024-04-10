@@ -19,6 +19,24 @@ export const getAllCategories = async (
   }
 };
 
+export const getCategoryById = async (
+  request: AuthRequest,
+  response: Response
+) => {
+  try {
+    const { user } = request
+    const { id } = request.params
+    const category = await Category.findOne({
+      _id: id,
+    })
+    return response.send(category)
+  } catch (error) {
+    response.send({ error: "Something went wrong" })
+    console.log("error in getAllCategories", error)
+    throw error
+  }
+}
+
 export const createCategory = async (
   request: AuthRequest,
   response: Response

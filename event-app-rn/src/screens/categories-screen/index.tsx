@@ -10,16 +10,20 @@ import Category from "../../components/categories/category";
 import CreateNewList from "../../components/categories/create-new-list";
 
 const CategoriesScreen = () => {
-  const { data, isLoading, error } = useSWR<ICategory[]>("categories/", fetcher,{
-    refreshInterval: 2000,
-  });
+  const { data, isLoading, error } = useSWR<ICategory[]>(
+    "categories/",
+    fetcher,
+    {
+      refreshInterval: 1000,
+    }
+  ); 
 
   if (isLoading) {
     return <Loader />;
   }
 
   const renderItem = ({ item }: { item: ICategory }) => (
-   <Category category={item} />
+    <Category category={item} />
   );
 
   return (
