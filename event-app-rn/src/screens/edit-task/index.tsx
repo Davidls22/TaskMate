@@ -253,7 +253,7 @@ const EditTaskScreen = () => {
         {isSelectingDate && (
           <Box>
             <Calendar
-              minDate={format(today, "Y-MM-dd")}
+              minDate={format(today, "y-MM-dd")}
               onDayPress={(day) => {
                 setIsSelectingDate(false)
                 const selectedDate = new Date(day.dateString).toISOString()

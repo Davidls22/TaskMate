@@ -7,6 +7,7 @@ import { AppState } from "react-native"
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import { StatusBar } from "expo-status-bar";
 import useUserGlobalStore from "./src/store/useUserGlobalStore";
+import FlashMessage from "react-native-flash-message"
 
 export default function App() {
   return (
@@ -47,6 +48,7 @@ export default function App() {
         </SWRConfig>
 
         <StatusBar translucent />
+        <FlashMessage position="top" />
       </SafeAreaProvider>
     </ThemeProvider>
   );

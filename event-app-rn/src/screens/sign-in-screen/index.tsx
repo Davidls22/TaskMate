@@ -9,6 +9,8 @@ import { Pressable } from "react-native";
 import { loginUser } from "../../services/api"
 import useUserGlobalStore from "../../store/useUserGlobalStore";
 import { Controller, useForm } from "react-hook-form"
+import { showMessage } from "react-native-flash-message";
+
 
 const SignInScreen = () => {
   const navigation = useNavigation<AuthScreenNavigationType<"SignIn">>();
@@ -40,6 +42,10 @@ const SignInScreen = () => {
           email: _user.email,
           name: _user.name,
         })
+        showMessage({
+          message: "Logged in successfully",
+          type: "success",
+        });
       } catch (error) {}
     }
 

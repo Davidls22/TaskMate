@@ -8,6 +8,7 @@ import Input from "../../components/shared/input";
 import { registerUser } from "../../services/api"
 import { Controller, useForm } from "react-hook-form";
 import { Pressable } from "react-native";
+import { showMessage } from "react-native-flash-message";
 
 const SignUpScreen = () => {
   const navigation = useNavigation<AuthScreenNavigationType<"SignUp">>();
@@ -37,6 +38,10 @@ const SignUpScreen = () => {
         name,
         password,
       })
+      showMessage({
+        message: "Registered successfully",
+        type: "success",
+      });
       navigateToSignInScreen()
     } catch (error) {}
   }
