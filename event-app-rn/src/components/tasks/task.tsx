@@ -105,8 +105,8 @@ const Task = ({ task, mutateTasks }: TaskProps) => {
               <Box
                 height={26}
                 width={26}
-                bg={task.isCompleted ? "gray9" : "gray300"}
-                borderRadius="rounded-xl"
+                bg={task.isCompleted ? "green400" : "gray300"}
+                borderRadius="rounded-3xl"
                 alignItems="center"
                 justifyContent="center"
               >

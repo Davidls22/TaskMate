@@ -82,3 +82,15 @@ export const loginUser = async (request: Request, response: Response) => {
     throw error;
   }
 };
+
+export const logoutUser = async (request: Request, response: Response) => {
+  try {
+    response.clearCookie("token"); // Clear token cookie
+
+    // Return a response indicating successful logout
+    return response.status(200).send({ message: "Logout successful" });
+  } catch (error) {
+    console.log("Error in logoutUser", error);
+    throw error;
+  }
+};

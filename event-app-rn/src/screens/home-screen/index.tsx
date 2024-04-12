@@ -11,6 +11,8 @@ import { format } from "date-fns"
 import React from "react"
 import { FlatList } from "react-native"
 import { ZoomInEasyDown } from "react-native-reanimated"
+import { TouchableOpacity } from "react-native";
+import { Ionicons } from "@expo/vector-icons"
 
 import useSWR from "swr"
 
@@ -20,6 +22,8 @@ const greeting = getGreeting({ hour: new Date().getHours() })
 
 const HomeScreen = () => {
   const { user } = useUserGlobalStore()
+
+  const { logout } = useUserGlobalStore();
 
   const {
     data: tasks,
@@ -34,6 +38,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaWrapper>
       <Box flex={1} mx="4">
+        <Box flexDirection="row" justifyContent="space-between" alignItems="center">
         <AnimatedText
           variant="textXl"
           fontWeight="500"
@@ -41,6 +46,10 @@ const HomeScreen = () => {
         >
           Good {greeting} {user?.name}
         </AnimatedText>
+        <TouchableOpacity onPress={logout}>
+            <Ionicons name="log-out-outline" size={24} color="black" />
+          </TouchableOpacity>
+          </Box>
         <Text variant="textXl" fontWeight="500">
           It’s {format(today, "eeee, LLL dd")} - {tasks.length} tasks
         </Text>

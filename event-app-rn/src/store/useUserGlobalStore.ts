@@ -6,6 +6,7 @@ import { createJSONStorage, persist } from "zustand/middleware"
 interface IUserGlobalStore {
     user: IAuthenticatedUser | null
     updateUser: (user: IAuthenticatedUser | null) => void
+    logout: () => void; 
   }
 
   const useUserGlobalStore = create<IUserGlobalStore>()(
@@ -16,6 +17,11 @@ interface IUserGlobalStore {
           set({
             user,
           })
+        },
+        logout: () => {
+          // Clear user data (including token) upon logout
+          AsyncStorage.removeItem("token");
+          set({ user: null });
         },
       }),
       {
